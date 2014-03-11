@@ -19,12 +19,12 @@ import org.apache.log4j.Logger;
 final public class BeanFactory {
 
 	// Constants
-	private static final Configuration CONFIG 	    = Configuration.instance();
-	private static final int     LOCKS 				= CONFIG.getCacheLocksNum();
+	private static final Configuration CONFIG	= Configuration.instance();
+	private static final int     LOCKS 		= CONFIG.getCacheLocksNum();
 	private static final int []  CACHE_CAPACITIES	= CONFIG.getCacheCapacities();
 	private static final boolean CACHE_STATISTICS 	= CONFIG.getCacheStatistics();
-	private static final Logger logger				= Logger.getLogger(BeanFactory.class);
-	private static final Object NOT_POPULATED 		= null;
+	private static final Logger logger		= Logger.getLogger(BeanFactory.class);
+	private static final Object NOT_POPULATED 	= null;
 
 	// Members
 	final private Cache<Command<?>, BeanWrapper, Priorities> cache;
@@ -171,7 +171,7 @@ final public class BeanFactory {
 	}
 
 	private void markCachableBeanNotFound(Command<?> command) {
-		logger.debug("Cache: value wasn't found, calling bean populator "		+ "[KeyType:"+command.getClass()+"]");
+		logger.debug("Cache: value wasn't found, calling bean populator " + "[KeyType:"+command.getClass()+"]");
 	}
 	
 	private void printCahceCapacities() {
@@ -203,7 +203,7 @@ final public class BeanFactory {
 	final private AtomicInteger hitCount    	= new AtomicInteger(0);
 	final private AtomicInteger accessCount 	= new AtomicInteger(0);
 	final private AtomicInteger nullContext 	= new AtomicInteger(0);
-	final private AtomicInteger contextChanged  = new AtomicInteger(0);
+	final private AtomicInteger contextChanged	= new AtomicInteger(0);
 
 	private void printCahceStatistics() {
 		logger.debug("***********CahceStatistics************");
